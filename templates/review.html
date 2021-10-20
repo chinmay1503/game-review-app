@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="dark">
+    <div class="container py-4">
+        {% for review in reviews %}
+        <article class="postcard dark red">
+            <a class="postcard__img_link" href="#">
+                <img class="postcard__img" src="{{ review.image_url }}" alt="{{ review.name }}" />
+            </a>
+            <div class="postcard__text">
+                <ul class="postcard__tagbox">
+                    <li class="tag__item"><i class="fas fa-tag mr-3"></i>{{ review.author }}</li>
+                    <li class="tag__item"><i class="fas fa-star mr-3"></i>{{ review.overall_score }}%</li>
+                </ul>
+                <h1 class="postcard__title red"><a href="#">{{ review.name }} ({{review.genre}})</a></h1>
+                <div class="postcard__subtitle small">
+                    <i class="fas fa-calendar-alt mr-3"></i>{{ review.review_date }}
+                </div>
+                <div class="postcard__bar"></div>
+                <div class="postcard__subtitle medium">
+                    <b> {{ review.review_title }} </b>
+                </div>
+                <div class="postcard__preview-txt"> {{ review.review_message }} </div>
+                <div>
+                    <a href="/update/{{review.review_id}}" class="btn btn-dark">Update</a>
+                    <a  href="/delete/{{review.review_id}}" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

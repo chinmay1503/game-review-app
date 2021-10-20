@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="row justify-content-center formContainer">
+        <form class="border border-dark rounded" action="{{ url_for('form') }}" method="post">
+          <h1 class="mb-2"> <strong>Review Form</strong> </h1>
+          <div class="form-group">
+            <label for="gameName"> <b>Game Name *</b> </label>
+            <input type="text" class="form-control col-lg-12" id="gameName" name="gameName" required>
+          </div>
+          <div class="form-group">
+            <label class="genreLabel" for="genre"> <b>Genre:</b> </label>
+            <select name="genre" id="genre">
+              <option value="Real-time strategy (RTS)">Real-time strategy (RTS)</option>
+              <option value="Shooters (FPS and TPS)">Shooters (FPS and TPS)</option>
+              <option value="Multiplayer online battle arena (MOBA)">Multiplayer online battle arena (MOBA)</option>
+              <option value="Simulation and sports">Simulation and sports</option>
+              <option value="Puzzlers and party games">Puzzlers and party games</option>
+              <option value="Action-adventure">Action-adventure</option>
+              <option value="Survival and horror">Survival and horror</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="imageUrl"><b>Game Image url *</b> </label>
+            <input type="text" class="form-control" id="imageUrl" name="image_url" required>
+          </div>
+          <div class="form-group">
+            <label for="author"> <b>Author *</b> </label>
+            <input type="text" class="form-control col-lg-12" id="author" name="author" required>
+          </div>
+          <div class="form-group">
+            <label for="overall_score"> <b>Overall Score (0 - 100) *</b> </label>
+            <input type="number" min="0" max ="100" class="form-control col-lg-12" id="overall_score" name="overall_score" required>
+          </div>
+          <div class="form-group">
+            <label for="reviewTitle"> <b>Review Title *</b> </label>
+            <input type="text" class="form-control col-lg-12" id="reviewTitle" name="review_title" required>
+          </div>
+          <div class="form-group">
+            <label for="reviewArea"><b>Review Message *</b> </label>
+            <textarea class="form-control" id="reviewArea" rows="4" name="review_message" required></textarea>
+          </div>
+          <div class="form-group row">
+            <div class="col">
+              <button type="submit" value="Form" class="btn btn-primary btn-block">Submit</button>
+            </div>
+            <div class="col">
+              <button type="reset" class="btn btn-secondary btn-block">Reset</button>
+            </div>
+          </div>
+        </form>
+      </div>
+{% endblock %}
